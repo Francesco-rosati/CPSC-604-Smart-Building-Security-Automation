@@ -1,0 +1,103 @@
+{
+    "global_network": {
+      "connections": [
+        { "from": "Office2", "to": "Office1", "rule": "deny" },
+        { "from": "Office1", "to": "Lobby", "rule": "allow" }
+      ]
+    },
+    "areas": [
+      {
+        "name": "Office1",
+        "devices": [
+          {
+            "id": "office1_camera1",
+            "type": "CAMERA",
+            "ip": "130.10.0.1",
+            "neighbors": ["1.0.0.1"]
+          },
+          {
+            "id": "office1_webserver",
+            "type": "WEBSERVER",
+            "ip": "130.10.0.2",
+            "neighbors": ["1.0.0.2"]
+          },
+          {
+            "id": "office1_workstation",
+            "type": "PC",
+            "ip": "130.10.0.3",
+            "neighbors": ["1.0.0.3"]
+          },
+          {
+            "id": "office1_gateway",
+            "type": "GATEWAY",
+            "ip": "1.0.0.1",
+            "neighbors": ["130.10.0.1", "130.10.0.2", "130.10.0.3", "192.168.0.1"]
+          }
+        ],
+        "requested_policies": [
+          {
+            "rule": "deny",
+            "source": "130.10.0.1",
+            "target": "192.168.3.1",
+            "dst_port": "80",
+            "protocol": "TCP"
+          },
+          {
+            "rule": "allow",
+            "source": "130.10.0.2",
+            "target": "192.168.3.1",
+            "dst_port": "80",
+            "protocol": "TCP"
+          },
+          {
+            "rule": "deny",
+            "source": "130.10.0.3",
+            "target": "130.10.0.1",
+            "protocol": "UDP"
+          }
+        ]
+      },
+      {
+        "name": "Office2",
+        "devices": [
+          {
+            "id": "office2_sensor",
+            "type": "SENSOR",
+            "ip": "130.20.0.1",
+            "neighbors": ["1.0.1.1"]
+          },
+          {
+            "id": "office2_bulb",
+            "type": "SMARTBULB",
+            "ip": "130.20.0.2",
+            "neighbors": ["1.0.1.2"]
+          },
+          {
+            "id": "office2_gateway",
+            "type": "GATEWAY",
+            "ip": "1.0.1.1",
+            "neighbors": ["130.20.0.1", "130.20.0.2", "192.168.0.1"]
+          }
+        ],
+        "requested_policies": [
+          {
+            "rule": "deny",
+            "source": "130.20.0.1",
+            "target": "130.10.0.2",
+            "protocol": "UDP"
+          }
+        ]
+      },
+      {
+        "name": "Lobby",
+        "devices": [
+          {
+            "id": "lobby_display",
+            "type": "PC",
+            "ip": "192.168.0.10",
+            "neighbors": ["1.0.0.1"]
+          }
+        ]
+      }
+    ]
+  }  

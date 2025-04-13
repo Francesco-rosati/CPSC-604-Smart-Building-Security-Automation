@@ -12,7 +12,7 @@ def build_graph_element(graph_elem, area, device_type_map):
     for device in devices:
         ip = device["ip"]
         dev_type = device["type"].upper()
-        verefoo_type = device_type_map.get(dev_type, dev_type)
+        verefoo_type = device_type_map(dev_type)
 
         # Add node element
         node_elem = etree.SubElement(graph_elem, "node", name=ip)

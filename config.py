@@ -18,14 +18,35 @@ VEREFOO_COMMAND = "java -jar verefoo.jar {input_file} > {output_file}"
 VEREFOO_TIMEOUT = 60
 
 # Device type mapping to VEREFOO-compatible types
-DEVICE_TYPE_MAPPING = {
-    "CAMERA": "WEBCLIENT",
-    "SENSOR": "WEBCLIENT",
-    "SMARTBULB": "WEBCLIENT",
-    "PC": "WEBCLIENT",
-    "PRINTER": "WEBCLIENT",
-    "GATEWAY": "FIREWALL"
-}
+def map_device_type(device_type):
+    """
+    Returns the VEREFOO-compatible functional type for a given device type.
+    Defaults to WEBCLIENT for all unspecified types.
+    """
+    direct_map = {
+        "GATEWAY": "FIREWALL",
+        "ENDPOINT": "ENDPOINT",
+        "ENDHOST": "ENDHOST",
+        "WEBCLIENT": "WEBCLIENT",
+        "ANTISPAM": "ANTISPAM",
+        "CACHE": "CACHE",
+        "DPI": "DPI",
+        "DPI_S": "DPI_S",
+        "MAILCLIENT": "MAILCLIENT",
+        "MAILSERVER": "MAILSERVER",
+        "VPNACCESS": "VPNACCESS",
+        "VPNEXIT": "VPNEXIT",
+        "FIELDMODIFIER": "FIELDMODIFIER",
+        "STATEFUL_FIREWALL": "STATEFUL_FIREWALL",
+        "PRIORITY_FIREWALL": "PRIORITY_FIREWALL",
+        "WEB_APPLICATION_FIREWALL": "WEB_APPLICATION_FIREWALL",
+        "TRAFFIC_MONITOR": "TRAFFIC_MONITOR",
+        "NAT": "NAT",
+        "FORWARDER": "FORWARDER",
+        "LOADBALANCER": "LOADBALANCER",
+        "WEBSERVER": "WEBSERVER"
+    }
+    return direct_map.get(device_type.upper(), "ENDHOST")
 
 # Supported protocols
 SUPPORTED_PROTOCOLS = ["TCP", "UDP", "ANY"]

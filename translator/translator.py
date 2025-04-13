@@ -3,7 +3,7 @@
 import os
 from lxml import etree
 from colorama import Fore, Style
-from config import VEREFOO_INPUT_DIR, DEVICE_TYPE_MAPPING
+from config import VEREFOO_INPUT_DIR, map_device_type
 from utils.xml_utils import build_graph_element
 
 
@@ -25,7 +25,7 @@ def translate_srl_to_xml(srl_data):
         graph_elem = etree.SubElement(graphs_elem, "graph", id="0")
 
         # Add nodes, links, and configurations to graph
-        build_graph_element(graph_elem, area, device_type_map=DEVICE_TYPE_MAPPING)
+        build_graph_element(graph_elem, area, device_type_map=map_device_type)
 
         # Add empty constraints and policy definitions
         etree.SubElement(nfv_elem, "Constraints")
