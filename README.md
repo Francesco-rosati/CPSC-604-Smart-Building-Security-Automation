@@ -145,8 +145,8 @@ The final output is a single JSON file containing all devices, security rules, a
       {
         "name": "Office_1",
         "devices": [
-          {"id": "130.10.0.1", "type": "CAMERA", "configuration": { ... }},
-          {"id": "1.0.0.1", "type": "WEBSERVER", "configuration": { ... }}
+          {"id": "130.10.0.1", "type": "CAMERA", "configuration": { "..." : "..." }},
+          {"id": "1.0.0.1", "type": "WEBSERVER", "configuration": { "..." : "..." }}
         ],
         "verified_policies": [
           {"rule": "deny", "source": "130.10.0.1", "target": "192.168.3.1"},
