@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+from colorama import Fore, Style
 from multiprocessing import Pool
 from config import VEREFOO_COMMAND, VEREFOO_OUTPUT_DIR, VEREFOO_TIMEOUT
 
@@ -17,11 +18,11 @@ def run_single_verefoo(input_path):
 
     try:
         subprocess.run(cmd, shell=True, timeout=VEREFOO_TIMEOUT, check=True)
-        print(f"✅ VEREFOO executed: {filename}")
+        print(f"{Fore.YELLOW}VEREFOO executed: {Style.RESET_ALL}{filename}\n")
     except subprocess.TimeoutExpired:
-        print(f"⏱️ Timeout while running VEREFOO for {filename}")
+        print(f"{Fore.RED}Timeout while running VEREFOO for {Style.RESET_ALL}{filename}\n")
     except subprocess.CalledProcessError:
-        print(f"❌ Error executing VEREFOO for {filename}")
+        print(f"{Fore.RED}Error executing VEREFOO for {Style.RESET_ALL}{filename}\n")
 
     return output_path
 

@@ -1,5 +1,7 @@
 # srl/srl_validator.py
 
+from colorama import Fore, Style
+
 def validate_srl(srl_data):
     """
     Performs basic validation of the SRL JSON structure.
@@ -35,4 +37,4 @@ def validate_srl(srl_data):
             if "from" not in conn or "to" not in conn or "rule" not in conn:
                 raise ValueError(f"Each connection must have 'from', 'to', and 'rule': {conn}")
 
-    print("✅ SRL validation passed")
+    print(f"{Fore.GREEN}SRL validation passed!{Style.RESET_ALL}\n")

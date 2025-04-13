@@ -2,6 +2,7 @@
 
 import os
 import xmltodict
+from colorama import Fore, Style
 
 def parse_output_file(path):
     """
@@ -62,5 +63,5 @@ def aggregate_outputs(output_paths):
         area_config = parse_output_file(path)
         final_config["global_configuration"]["areas"].append(area_config)
 
-    print("✅ Aggregation complete")
+    print(f"{Fore.GREEN}Aggregation successfully completed!{Style.RESET_ALL}\n")
     return final_config

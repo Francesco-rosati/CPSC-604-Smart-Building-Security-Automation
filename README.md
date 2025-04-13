@@ -85,7 +85,7 @@ Listed in `requirements.txt`:
 ```
 lxml
 xmltodict
-tqdm
+colorama
 ```
 
 Install them with:

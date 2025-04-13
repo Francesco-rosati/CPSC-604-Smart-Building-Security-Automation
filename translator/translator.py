@@ -2,6 +2,7 @@
 
 import os
 from lxml import etree
+from colorama import Fore, Style
 from config import VEREFOO_INPUT_DIR, DEVICE_TYPE_MAPPING
 from utils.xml_utils import build_graph_element
 
@@ -45,6 +46,6 @@ def translate_srl_to_xml(srl_data):
         tree.write(filepath, pretty_print=True, xml_declaration=True, encoding="UTF-8")
         xml_paths.append(filepath)
 
-        print(f"✅ Translated area '{area_name}' → {filepath}")
+        print(f"{Fore.YELLOW}Translated area {Fore.BLUE}'{area_name}'{Style.RESET_ALL} → {filepath}")
 
     return xml_paths
