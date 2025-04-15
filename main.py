@@ -55,13 +55,17 @@ def main():
         print(f"\n{Fore.RED}One or more VEREFOO executions failed. Please check the logs.{Style.RESET_ALL}")
         return
 
+    print(f"{Fore.GREEN}VEREFOO successfully executed!{Style.RESET_ALL}\n")
+
     # Aggregate the outputs from VEREFOO
     print(f"{Fore.MAGENTA}Aggregating outputs from VEREFOO...{Style.RESET_ALL}")
-    aggregated = aggregate_outputs(output_paths)
+    aggregated = aggregate_outputs(output_paths, srl)
+    print(f"{Fore.GREEN}Aggregation successfully completed!{Style.RESET_ALL}\n")
 
     # Save the final configuration
     print(f"{Fore.MAGENTA}Saving final configuration...{Style.RESET_ALL}")
     save_final_output(aggregated)
+    print(f"{Fore.GREEN}Final configuration successfully saved!{Style.RESET_ALL}\n")
 
     print(f"{Fore.MAGENTA}Pipeline successfully completed!{Style.RESET_ALL}")
 
