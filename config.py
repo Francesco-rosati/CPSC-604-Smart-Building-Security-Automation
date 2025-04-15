@@ -5,7 +5,7 @@ import os
 # Base data directories
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-INPUT_SRL_FILE = os.path.join(DATA_DIR, "input_srl2.json")
+INPUT_SRL_FILE = os.path.join(DATA_DIR, "input_srl.json")
 VEREFOO_INPUT_DIR = os.path.join(DATA_DIR, "verefoo_inputs")
 VEREFOO_OUTPUT_DIR = os.path.join(DATA_DIR, "verefoo_outputs")
 FINAL_OUTPUT_FILE = os.path.join(DATA_DIR, "final_config.json")

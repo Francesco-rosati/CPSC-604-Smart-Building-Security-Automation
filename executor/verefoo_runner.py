@@ -42,7 +42,7 @@ def run_single_verefoo(input_path):
                     root = etree.fromstring(f.read())
                     message = root.findtext("message")
                     if message:
-                        print(f"{Fore.LIGHTRED_EX}Error message: {Style.RESET_ALL}{message}")
+                        print(f"{Fore.LIGHTRED_EX}Error message for file: {filename}: {Style.RESET_ALL}{message}")
             except Exception as e:
                 print(f"{Fore.LIGHTBLACK_EX}Could not parse error XML: {e}{Style.RESET_ALL}")
 
