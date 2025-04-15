@@ -90,6 +90,7 @@ lxml
 xmltodict
 colorama
 pytest
+pathlib2
 ```
 
 Install them with:

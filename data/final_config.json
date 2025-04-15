@@ -1,0 +1,1401 @@
+{
+  "global_network": {
+    "connections": [
+      {
+        "from": "Office_2",
+        "to": "Office_1",
+        "rule": "deny"
+      },
+      {
+        "from": "Office_3",
+        "to": "Office_2",
+        "rule": "allow"
+      }
+    ]
+  },
+  "areas": [
+    {
+      "name": "office_1",
+      "devices": [
+        {
+          "id": "dev_130_10_0_1",
+          "ip": "130.10.0.1",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_130_10_0_2",
+          "ip": "130.10.0.2",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_130_10_0_3",
+          "ip": "130.10.0.3",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_130_10_0_4",
+          "ip": "130.10.0.4",
+          "type": "LOADBALANCER",
+          "pools": [
+            {
+              "pool": [
+                "130.10.0.1",
+                "130.10.0.2",
+                "130.10.0.3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dev_33_33_33_2",
+          "ip": "33.33.33.2",
+          "type": "FORWARDER"
+        },
+        {
+          "id": "dev_40_40_41_-1",
+          "ip": "40.40.41.-1",
+          "type": "WEBCLIENT",
+          "target": "130.10.0.1"
+        },
+        {
+          "id": "dev_40_40_42_-1",
+          "ip": "40.40.42.-1",
+          "type": "WEBCLIENT",
+          "target": "130.10.0.1"
+        },
+        {
+          "id": "dev_33_33_33_3",
+          "ip": "33.33.33.3",
+          "type": "FORWARDER"
+        },
+        {
+          "id": "dev_88_80_84_-1",
+          "ip": "88.80.84.-1",
+          "type": "WEBCLIENT",
+          "target": "130.10.0.1"
+        },
+        {
+          "id": "dev_220_124_30_1",
+          "ip": "220.124.30.1",
+          "type": "NAT",
+          "sources": [
+            {
+              "source": [
+                "192.168.3.-1",
+                "192.168.2.-1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dev_192_168_3_-1",
+          "ip": "192.168.3.-1",
+          "type": "WEBCLIENT",
+          "target": "130.10.0.1"
+        },
+        {
+          "id": "dev_192_168_2_-1",
+          "ip": "192.168.2.-1",
+          "type": "WEBCLIENT",
+          "target": "130.10.0.1"
+        }
+      ],
+      "verified_policies": [
+        {
+          "rule": "deny",
+          "source": "88.80.84.-1",
+          "target": "130.10.0.1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "88.80.84.-1",
+          "target": "130.10.0.2",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "88.80.84.-1",
+          "target": "130.10.0.3",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "88.80.84.-1",
+          "target": "130.10.0.4",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.42.-1",
+          "target": "130.10.0.1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.42.-1",
+          "target": "130.10.0.2",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.42.-1",
+          "target": "130.10.0.3",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.42.-1",
+          "target": "130.10.0.4",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.1",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.2",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.3",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.4",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.1",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.1",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.2",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.2",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.3",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.3",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.4",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.4",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.1",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.2",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.3",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.3.-1",
+          "target": "130.10.0.4",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "allow",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.1",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.2",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.3",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.4",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.1",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.1",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.2",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.2",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.3",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.3",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.4",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.4",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.1",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.2",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.3",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "130.10.0.4",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.2.-1",
+          "target": "130.10.0.1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.2.-1",
+          "target": "130.10.0.2",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.2.-1",
+          "target": "130.10.0.3",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "192.168.2.-1",
+          "target": "130.10.0.4",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "88.80.84.-1",
+          "target": "40.40.42.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "40.40.41.-1",
+          "target": "40.40.42.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.1",
+          "target": "192.168.3.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.2",
+          "target": "192.168.3.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.3",
+          "target": "192.168.3.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.4",
+          "target": "192.168.3.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "192.168.2.-1",
+          "target": "192.168.3.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.1",
+          "target": "40.40.41.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.2",
+          "target": "40.40.41.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.3",
+          "target": "40.40.41.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "130.10.0.4",
+          "target": "40.40.41.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "88.80.84.-1",
+          "target": "40.40.41.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "40.40.42.-1",
+          "target": "40.40.41.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "192.168.3.-1",
+          "target": "192.168.2.-1",
+          "protocol": "ANY"
+        }
+      ]
+    },
+    {
+      "name": "office_2",
+      "devices": [
+        {
+          "id": "dev_140_20_10_11",
+          "ip": "140.20.10.11",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_140_20_10_12",
+          "ip": "140.20.10.12",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_140_20_10_13",
+          "ip": "140.20.10.13",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_140_20_10_14",
+          "ip": "140.20.10.14",
+          "type": "LOADBALANCER",
+          "pools": [
+            {
+              "pool": [
+                "140.20.10.11",
+                "140.20.10.12",
+                "140.20.10.13"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dev_43_43_43_12",
+          "ip": "43.43.43.12",
+          "type": "FORWARDER"
+        },
+        {
+          "id": "dev_50_50_51_-1",
+          "ip": "50.50.51.-1",
+          "type": "WEBCLIENT",
+          "target": "140.20.10.11"
+        },
+        {
+          "id": "dev_50_50_52_-1",
+          "ip": "50.50.52.-1",
+          "type": "WEBCLIENT",
+          "target": "140.20.10.11"
+        },
+        {
+          "id": "dev_43_43_43_13",
+          "ip": "43.43.43.13",
+          "type": "FORWARDER"
+        },
+        {
+          "id": "dev_98_90_94_-1",
+          "ip": "98.90.94.-1",
+          "type": "WEBCLIENT",
+          "target": "140.20.10.11"
+        },
+        {
+          "id": "dev_230_134_40_11",
+          "ip": "230.134.40.11",
+          "type": "NAT",
+          "sources": [
+            {
+              "source": [
+                "202.178.13.-1",
+                "202.178.12.-1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dev_202_178_13_-1",
+          "ip": "202.178.13.-1",
+          "type": "WEBCLIENT",
+          "target": "140.20.10.11"
+        },
+        {
+          "id": "dev_202_178_12_-1",
+          "ip": "202.178.12.-1",
+          "type": "WEBCLIENT",
+          "target": "140.20.10.11"
+        }
+      ],
+      "verified_policies": [
+        {
+          "rule": "deny",
+          "source": "50.50.52.-1",
+          "target": "140.20.10.11",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.52.-1",
+          "target": "140.20.10.12",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.52.-1",
+          "target": "140.20.10.13",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.52.-1",
+          "target": "140.20.10.14",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.11",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.12",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.13",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.14",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.11",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.11",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.12",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.12",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.13",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.13",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.14",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.14",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.11",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.12",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.13",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "140.20.10.14",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.12.-1",
+          "target": "140.20.10.11",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.12.-1",
+          "target": "140.20.10.12",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.12.-1",
+          "target": "140.20.10.13",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.12.-1",
+          "target": "140.20.10.14",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.11",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.12",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.13",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.14",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.11",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.11",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.12",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.12",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.13",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.13",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.14",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.14",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.11",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.12",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.13",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "202.178.13.-1",
+          "target": "140.20.10.14",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "98.90.94.-1",
+          "target": "140.20.10.11",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "98.90.94.-1",
+          "target": "140.20.10.12",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "98.90.94.-1",
+          "target": "140.20.10.13",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "98.90.94.-1",
+          "target": "140.20.10.14",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "50.50.51.-1",
+          "target": "50.50.52.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "98.90.94.-1",
+          "target": "50.50.52.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.11",
+          "target": "50.50.51.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.12",
+          "target": "50.50.51.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.13",
+          "target": "50.50.51.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.14",
+          "target": "50.50.51.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "50.50.52.-1",
+          "target": "50.50.51.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "98.90.94.-1",
+          "target": "50.50.51.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "202.178.13.-1",
+          "target": "202.178.12.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.11",
+          "target": "202.178.13.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.12",
+          "target": "202.178.13.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.13",
+          "target": "202.178.13.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "140.20.10.14",
+          "target": "202.178.13.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "202.178.12.-1",
+          "target": "202.178.13.-1",
+          "protocol": "ANY"
+        }
+      ]
+    },
+    {
+      "name": "office_3",
+      "devices": [
+        {
+          "id": "dev_150_30_20_21",
+          "ip": "150.30.20.21",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_150_30_20_22",
+          "ip": "150.30.20.22",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_150_30_20_23",
+          "ip": "150.30.20.23",
+          "type": "WEBSERVER"
+        },
+        {
+          "id": "dev_150_30_20_24",
+          "ip": "150.30.20.24",
+          "type": "LOADBALANCER",
+          "pools": [
+            {
+              "pool": [
+                "150.30.20.21",
+                "150.30.20.22",
+                "150.30.20.23"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dev_53_53_53_22",
+          "ip": "53.53.53.22",
+          "type": "FORWARDER"
+        },
+        {
+          "id": "dev_60_60_61_-1",
+          "ip": "60.60.61.-1",
+          "type": "WEBCLIENT",
+          "target": "150.30.20.21"
+        },
+        {
+          "id": "dev_60_60_62_-1",
+          "ip": "60.60.62.-1",
+          "type": "WEBCLIENT",
+          "target": "150.30.20.21"
+        },
+        {
+          "id": "dev_53_53_53_23",
+          "ip": "53.53.53.23",
+          "type": "FORWARDER"
+        },
+        {
+          "id": "dev_108_100_104_-1",
+          "ip": "108.100.104.-1",
+          "type": "WEBCLIENT",
+          "target": "150.30.20.21"
+        },
+        {
+          "id": "dev_240_144_50_21",
+          "ip": "240.144.50.21",
+          "type": "NAT",
+          "sources": [
+            {
+              "source": [
+                "212.188.23.-1",
+                "212.188.22.-1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dev_212_188_23_-1",
+          "ip": "212.188.23.-1",
+          "type": "WEBCLIENT",
+          "target": "150.30.20.21"
+        },
+        {
+          "id": "dev_212_188_22_-1",
+          "ip": "212.188.22.-1",
+          "type": "WEBCLIENT",
+          "target": "150.30.20.21"
+        }
+      ],
+      "verified_policies": [
+        {
+          "rule": "deny",
+          "source": "108.100.104.-1",
+          "target": "150.30.20.21",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "108.100.104.-1",
+          "target": "150.30.20.22",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "108.100.104.-1",
+          "target": "150.30.20.23",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "108.100.104.-1",
+          "target": "150.30.20.24",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.21",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.22",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.23",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.24",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.21",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.21",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.22",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.22",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.23",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.23",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.24",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.24",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.21",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.22",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.23",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.23.-1",
+          "target": "150.30.20.24",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.62.-1",
+          "target": "150.30.20.21",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.62.-1",
+          "target": "150.30.20.22",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.62.-1",
+          "target": "150.30.20.23",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.62.-1",
+          "target": "150.30.20.24",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.22.-1",
+          "target": "150.30.20.21",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.22.-1",
+          "target": "150.30.20.22",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.22.-1",
+          "target": "150.30.20.23",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "212.188.22.-1",
+          "target": "150.30.20.24",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.21",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.22",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.23",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "allow",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.24",
+          "protocol": "TCP",
+          "dst_port": "80"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.21",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.21",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.22",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.22",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.23",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.23",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.24",
+          "protocol": "TCP",
+          "dst_port": "0-79"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.24",
+          "protocol": "TCP",
+          "dst_port": "81-65535"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.21",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.22",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.23",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "150.30.20.24",
+          "protocol": "UDP"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.21",
+          "target": "212.188.23.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.22",
+          "target": "212.188.23.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.23",
+          "target": "212.188.23.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.24",
+          "target": "212.188.23.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "212.188.22.-1",
+          "target": "212.188.23.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "212.188.23.-1",
+          "target": "212.188.22.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "108.100.104.-1",
+          "target": "60.60.62.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "deny",
+          "source": "60.60.61.-1",
+          "target": "60.60.62.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.21",
+          "target": "60.60.61.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.22",
+          "target": "60.60.61.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.23",
+          "target": "60.60.61.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "150.30.20.24",
+          "target": "60.60.61.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "108.100.104.-1",
+          "target": "60.60.61.-1",
+          "protocol": "ANY"
+        },
+        {
+          "rule": "allow",
+          "source": "60.60.62.-1",
+          "target": "60.60.61.-1",
+          "protocol": "ANY"
+        }
+      ]
+    }
+  ]
+}
