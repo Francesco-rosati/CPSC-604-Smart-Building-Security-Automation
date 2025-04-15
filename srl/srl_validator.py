@@ -2,6 +2,7 @@
 
 from colorama import Fore, Style
 
+
 def validate_srl(srl_data):
     """
     Performs basic validation of the SRL JSON structure.

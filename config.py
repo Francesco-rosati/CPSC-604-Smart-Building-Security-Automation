@@ -21,7 +21,7 @@ VEREFOO_COMMAND = [
     ]
 
 # Timeout for VEREFOO execution (in seconds)
-VEREFOO_TIMEOUT = 60
+VEREFOO_TIMEOUT = 180
 
 
 # Device type mapping to VEREFOO-compatible types

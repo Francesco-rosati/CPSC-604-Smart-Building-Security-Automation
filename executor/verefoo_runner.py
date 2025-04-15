@@ -25,6 +25,9 @@ def run_single_verefoo(input_path):
         status_code = result.stdout.strip()
 
         if status_code == "200":
+            if not os.path.exists(output_path):
+                print(f"{Fore.RED}Output file not found: {output_path}{Style.RESET_ALL}")
+                return None
             # Try to parse and pretty-print the XML
             with open(output_path, "rb") as f:
                 root = etree.fromstring(f.read())

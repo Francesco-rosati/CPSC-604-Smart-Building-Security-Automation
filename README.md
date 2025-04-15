@@ -7,7 +7,7 @@ This repository implements a modular Python pipeline to automate access control 
 ## Repository Structure
 
 ```
-smartbuilding_security/
+CPSC-604-Smart-Building-Security-Automation/
 ├── main.py                  # Entry point: orchestrates the whole pipeline
 ├── config.py                # Global paths and settings
 ├── requirements.txt         # Python dependencies
@@ -29,8 +29,11 @@ smartbuilding_security/
 
 ├── data/
 │   ├── input_srl.json       # Input SRL file
+│   ├── final_config.json    # Input SRL file
 │   ├── verefoo_inputs/      # Folder for generated VEREFOO input XML files
 │   └── verefoo_outputs/     # Folder for output files from VEREFOO
+
+├── tests/                   # Unit tests for each module
 
 └── README.md
 ```
@@ -86,6 +89,7 @@ Listed in `requirements.txt`:
 lxml
 xmltodict
 colorama
+pytest
 ```
 
 Install them with:
