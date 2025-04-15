@@ -2,8 +2,6 @@
 
 import os
 import xmltodict
-import json
-from config import VEREFOO_OUTPUT_DIR
 from colorama import Fore, Style
 
 
