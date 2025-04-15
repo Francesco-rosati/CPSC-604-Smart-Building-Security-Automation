@@ -28,7 +28,9 @@ def translate_srl_to_xml(srl_data):
         build_graph_element(graph_elem, area, device_type_map=map_device_type)
 
         # Add empty constraints and policy definitions
-        etree.SubElement(nfv_elem, "Constraints")
+        constraints_element = etree.SubElement(nfv_elem, "Constraints")
+        etree.SubElement(constraints_element, "NodeConstraints")
+        etree.SubElement(constraints_element, "LinkConstraints")
         prop_def = etree.SubElement(nfv_elem, "PropertyDefinition")
 
         for policy in area.get("requested_policies", []):

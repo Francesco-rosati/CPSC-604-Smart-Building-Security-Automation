@@ -175,3 +175,5 @@ cython_debug/
 
 # Miscellaneous
 **/.DS_Store
+data/verefoo_inputs
+data/verefoo_outputs
