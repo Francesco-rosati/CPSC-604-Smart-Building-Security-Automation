@@ -5,17 +5,24 @@ import os
 # Base data directories
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-INPUT_SRL_FILE = os.path.join(DATA_DIR, "input_srl.json")
+INPUT_SRL_FILE = os.path.join(DATA_DIR, "input_srl1.json")
 VEREFOO_INPUT_DIR = os.path.join(DATA_DIR, "verefoo_inputs")
 VEREFOO_OUTPUT_DIR = os.path.join(DATA_DIR, "verefoo_outputs")
 FINAL_OUTPUT_FILE = os.path.join(DATA_DIR, "final_config.json")
 
 # VEREFOO command pattern
-# You can customize this path to point to your actual VEREFOO JAR
-VEREFOO_COMMAND = "java -jar verefoo.jar {input_file} > {output_file}"
+VEREFOO_COMMAND = [
+        "curl", "-s", "-w", "%{http_code}",
+        "-X", "POST", "http://localhost:8085/verefoo/adp/simulations?Algorithm=MF",
+        "-H", "accept: application/xml",
+        "-H", "Content-Type: application/xml",
+        "--data-binary", "@{input_path}",
+        "-o", "{output_path}"
+    ]
 
 # Timeout for VEREFOO execution (in seconds)
 VEREFOO_TIMEOUT = 60
+
 
 # Device type mapping to VEREFOO-compatible types
 def map_device_type(device_type):
@@ -47,6 +54,7 @@ def map_device_type(device_type):
         "WEBSERVER": "WEBSERVER"
     }
     return direct_map.get(device_type.upper(), "ENDHOST")
+
 
 # Supported protocols
 SUPPORTED_PROTOCOLS = ["TCP", "UDP", "ANY"]

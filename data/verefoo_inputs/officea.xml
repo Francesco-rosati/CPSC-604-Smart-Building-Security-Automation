@@ -2,17 +2,17 @@
 <NFV>
   <graphs>
     <graph id="0">
-      <node name="10.0.0.1" functional_type="WEBCLIENT">
+      <node name="10.0.0.1" functional_type="ENDHOST">
         <neighbour name="10.0.0.2"/>
         <configuration name="autogen_10.0.0.1">
-          <webclient nameWebServer="130.10.0.1"/>
+          <endhost/>
         </configuration>
       </node>
-      <node name="10.0.0.2" functional_type="WEBCLIENT">
+      <node name="10.0.0.2" functional_type="ENDHOST">
         <neighbour name="10.0.0.1"/>
         <neighbour name="10.0.0.3"/>
         <configuration name="autogen_10.0.0.2">
-          <webclient nameWebServer="130.10.0.1"/>
+          <endhost/>
         </configuration>
       </node>
       <node name="10.0.0.3" functional_type="FIREWALL">
@@ -26,7 +26,10 @@
       </node>
     </graph>
   </graphs>
-  <Constraints/>
+  <Constraints>
+		<NodeConstraints/>
+		<LinkConstraints />
+	</Constraints>
   <PropertyDefinition>
     <Property graph="0" name="IsolationProperty" src="10.0.0.1" dst="192.168.0.10" dst_port="443" lv4proto="TCP"/>
     <Property graph="0" name="ReachabilityProperty" src="10.0.0.2" dst="192.168.0.10" dst_port="80" lv4proto="TCP"/>

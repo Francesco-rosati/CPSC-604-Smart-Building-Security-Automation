@@ -2,17 +2,17 @@
 <NFV>
   <graphs>
     <graph id="0">
-      <node name="10.1.0.1" functional_type="WEBCLIENT">
+      <node name="10.1.0.1" functional_type="ENDHOST">
         <neighbour name="10.1.0.2"/>
         <configuration name="autogen_10.1.0.1">
-          <webclient nameWebServer="130.10.0.1"/>
+          <endhost/>
         </configuration>
       </node>
-      <node name="10.1.0.2" functional_type="WEBCLIENT">
+      <node name="10.1.0.2" functional_type="ENDHOST">
         <neighbour name="10.1.0.1"/>
         <neighbour name="10.1.0.3"/>
         <configuration name="autogen_10.1.0.2">
-          <webclient nameWebServer="130.10.0.1"/>
+          <endhost/>
         </configuration>
       </node>
       <node name="10.1.0.3" functional_type="FIREWALL">
