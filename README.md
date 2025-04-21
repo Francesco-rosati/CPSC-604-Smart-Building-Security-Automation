@@ -81,6 +81,7 @@ python main.py
 
 - Python 3.8 or higher
 - Java Runtime (for executing VEREFOO)
+- Z3 Solver 4.8.8 (for executing VEREFOO)
 
 ### Python Dependencies
 Listed in `requirements.txt`:
@@ -103,7 +104,7 @@ pip install -r requirements.txt
 
 ## Device Type Mapping
 
-Unsupported devices such as sensors, smart bulbs, and cameras are automatically mapped to supported VEREFOO types (e.g., `WEBCLIENT`) to ensure compatibility.
+Unsupported devices such as sensors, smart bulbs, and cameras are automatically mapped to supported VEREFOO types (e.g., `WEBCLIENT` or `ENDHOST`) to ensure compatibility.
 
 ---
 
@@ -167,5 +168,4 @@ The final output is a single JSON file containing all devices, security rules, a
 
 ## External Dependencies
 
-- [VEREFOO](https://github.com/netgroup-polito/verefoo): Make sure the VEREFOO binary is executable from the command line (e.g., `java -jar verefoo.jar input.xml > output.xml`)
-- Java runtime is required to run the VEREFOO JAR file
+- [VEREFOO](https://github.com/netgroup-polito/verefoo): Make sure the VEREFOO binary is executable from the command line (e.g., `java -jar target/verifoo-0.0.1-SNAPSHOT.jar`)
